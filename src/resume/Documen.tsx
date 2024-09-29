@@ -46,17 +46,47 @@ const styles = StyleSheet.create({
   },
 })
 
-export const ACHIEVEMENTS = [
-  "Specialized in JavaScript/TypeScript and related technologies, I have become the go-to expert for any related problems in the workspace. (Don't get me wrong, I'm still learning)",
-  'Conducted code reviews on enterprise-level projects to ensure code quality and standards.',
-  'Engaged directly with clients to resolve requirements issues and communication gaps.',
-  'Conducted nearly 50+ interviews for various roles (Full-stack, Front-end, Back-end, DevOps, Mobile-app).',
+// export const ACHIEVEMENTS = [
+//   "Specialized in JavaScript/TypeScript and related technologies, I have become the go-to expert for any related problems in the workspace. (Don't get me wrong, I'm still learning)",
+//   'Conducted code reviews on enterprise-level projects to ensure code quality and standards.',
+//   'Engaged directly with clients to resolve requirements issues and communication gaps.',
+//   'Conducted nearly 50+ interviews for various roles (Full-stack, Front-end, Back-end, DevOps, Mobile-app).',
+// ]
+
+// export const EXTRA_CURRICULAR_ACTIVITIES = [
+//   `I frequently write blogs on dev.to and posts on LinkedIn about Software Engineering, JavaScript/TypeScript, Node.js, and related topics that can benefit others. I have gained 7k+ followers on LinkedIn and achieved close to 50k impressions on dev.to.`,
+//   `I stay involved in continuous learning and community conferences to remain on the cutting edge of technology.`,
+//   `I consistently work on side projects to explore new technologies and ideas.`,
+// ]
+
+export const CERTIFICATIONS: { text: string; link: string }[] = [
+  {
+    text: 'Angular',
+    link: 'https://dub.sh/angular-fe-cert',
+  },
+  {
+    text: 'NodeJS, Express & MongoDB',
+    link: 'https://dub.sh/node-be-cert',
+  },
+  {
+    text: 'Microsoft Certified: Azure Fundamentals',
+    link: 'https://dub.sh/cred-azure-cert',
+  },
+  {
+    text: 'AWS Academy Graduate - AWS Academy Cloud Foundations',
+    link: 'https://dub.sh/cred-aws-cert',
+  },
 ]
 
-export const EXTRA_CURRICULAR_ACTIVITIES = [
-  `I frequently write blogs on dev.to and posts on LinkedIn about Software Engineering, JavaScript/TypeScript, Node.js, and related topics that can benefit others. I have gained 7k+ followers on LinkedIn and achieved close to 50k impressions on dev.to.`,
-  `I stay involved in continuous learning and community conferences to remain on the cutting edge of technology.`,
-  `I consistently work on side projects to explore new technologies and ideas.`,
+export const PROJECTS: { text: string; link: string }[] = [
+  {
+    text: 'Hoy Hoy Ibiza',
+    link: 'https://hoyhoyibiza.com',
+  },
+  {
+    text: 'Whalecard',
+    link: 'https://whalecard.co/',
+  },
 ]
 
 export const Section: React.FC<{
@@ -132,6 +162,21 @@ export const Experience = ({
         </Text>
         <Text style={styles.text}>{location}</Text>
       </View>
+    </View>
+  )
+}
+
+export const BulletLinks = ({ link, text }: { text: string; link: string }) => {
+  return (
+    <View
+      style={{
+        paddingLeft: '5px',
+      }}
+    >
+      <Text style={{ ...styles.text }}>&bull; {text}</Text>
+      <Text style={styles.text}>
+        <Link href={link}>{link}</Link>
+      </Text>
     </View>
   )
 }
@@ -226,40 +271,30 @@ export const MyDocument = () => (
             'JavaScript',
             'TypeScript',
             'Node.js',
-            'Golang',
-            'Python',
             'PostgreSQL',
             'MySQL',
             'MongoDB',
             'Firebase',
-            'Neo4J',
-            'Pinecone',
+            'Bull MQ',
             'Redis',
             'GraphQL',
             'Rest APIs',
             'React.js',
             'Next.js',
+            'Nest.js',
             'Angular',
             'Docker',
-            'Kubernetes',
             'Github',
-            'Pulumi',
-            'Github Actions',
-            'Ansible',
             'AWS',
-            'Cloudflare',
-            'GCP',
           ]}
         />
         <Skills
           heading='Soft Skills'
           skills={[
-            'Communication',
-            'Leadership',
-            'Conflict Resolution',
-            'Listening',
             'Continuous Learning',
+            'Communication',
             'Problem Solving',
+            'Listening',
             'Attention to Detail',
           ]}
         />
@@ -269,24 +304,24 @@ export const MyDocument = () => (
           role='Senior Software Engineer'
           company='Hashone Digital'
           location='Karachi, Pakistan'
-          from='Mar 2021'
+          from='Apr 2022'
           to='Present'
           achievements={[
-            'Initiated a full-stack development department in the company.',
-            'Built a team of 14 high-performing full-stack engineers, enabling the department to bid on and win highly rewarding projects.',
-            "Led training sessions on full-stack development (TypeScript-based) to enhance the team's capabilities to handle complex, data-intensive, and GenAI projects efficiently.",
-            'Served as a key person to help scale out a backend system to 100k monthly users (gradually).',
-            'Successfully secured complex and highly rewarding projects for the company through deep expertise and effective communication with technical clients.',
+            'Effectively leveraged deep expertise and communication skills to secure complex, high-value projects for the company.',
+            'Adopted latest Front-end and back-end technologies as well as best practices to improve development efficiency.',
+            'Guided and supported team members, helping to enhance their technical skills and improve their contributions',
+            'Collaborated with DevOps engineers to establish efficient deployment pipelines and automate the deployment process.',
+            'Actively participated in Agile methodologies, contributing to sprint planning, daily stand-ups, and retrospectives for smooth project execution and continuous improvement.',
             'Serving as a core team member.',
           ]}
         />
 
         <Experience
           role='Software Engineer'
-          company='Freelance'
-          location='Remote'
-          from='Jul 2019'
-          to='Mar 2021'
+          company='Logikware LTD'
+          location='Karachi, Pakistan'
+          from='Jun 2020'
+          to='Mar 2022'
           achievements={[
             'Converting Figma or Adobe XD design into fully-functional web apps.',
             'Building REST and GraphQL APIs.',
@@ -294,21 +329,19 @@ export const MyDocument = () => (
           ]}
         />
       </Section>
-      <Section heading='Achievements'>
+      <Section heading='Certifications'>
         <View style={{ gap: '4px', flexDirection: 'column' }}>
-          {ACHIEVEMENTS.map((achievement) => {
-            return <Text style={styles.text}>&bull; {achievement}</Text>
+          {CERTIFICATIONS.map((certificate) => {
+            return (
+              <BulletLinks text={certificate.text} link={certificate.link} />
+            )
           })}
         </View>
       </Section>
-      <Section heading='Extra-Curricular Activities'>
-        <View style={{ gap: '4px', flexDirection: 'column' }}>
-          {EXTRA_CURRICULAR_ACTIVITIES.map((activities) => {
-            return (
-              <Text key={activities} style={styles.text}>
-                &bull; {activities}
-              </Text>
-            )
+      <Section heading='Projects'>
+        <View style={{ gap: '4px', flexDirection: 'row' }}>
+          {PROJECTS.map((project) => {
+            return <BulletLinks text={project.text} link={project.link} />
           })}
         </View>
       </Section>
