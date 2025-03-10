@@ -71,8 +71,8 @@ export const PROJECTS: { text: string; link: string }[] = [
     link: 'https://hoyhoyibiza.com',
   },
   {
-    text: 'Whalecard',
-    link: 'https://whalecard.co/',
+    text: 'Autilent',
+    link: 'https://autilent.com/',
   },
 ]
 
@@ -205,13 +205,13 @@ export const MyDocument = () => (
           <Text style={styles.text}>|</Text>
           <Text style={styles.text}>
             <Link href='https://www.linkedin.com/in/shakir-yasin/'>
-              linkedin.com/in/shakir-yasin/
+              https://linkedin.com/in/shakir-yasin
             </Link>
           </Text>
           <Text style={styles.text}>|</Text>
           <Text style={styles.text}>
             <Link href='https://github.com/ShakirYasin'>
-              github.com/ShakirYasin
+              https://github.com/ShakirYasin
             </Link>
           </Text>
         </View>
@@ -234,10 +234,13 @@ export const MyDocument = () => (
       </Section>
 
       <Section heading='Skills'>
-        <Skills heading='Programming' skills={['JavaScript', 'TypeScript']} />
+        <Skills
+          heading='Programming'
+          skills={['JavaScript', 'TypeScript', 'Python']}
+        />
         <Skills
           heading='Backend'
-          skills={['Node.js', 'Express.js', 'Nest.js', 'GraphQL', 'REST APIs']}
+          skills={['Node.js', 'Express.js', 'Nest.js', 'GraphQL', 'REST APIs', 'Socket']}
         />
         <Skills
           heading='Frontend'
@@ -248,7 +251,7 @@ export const MyDocument = () => (
           skills={['PostgreSQL', 'MySQL', 'MongoDB', 'Firebase']}
         />
         <Skills heading='Cloud & DevOps' skills={['AWS', 'Docker', 'GitHub']} />
-        <Skills heading='Other' skills={['Redis', 'Bull MQ', 'Git']} />
+        <Skills heading='Other' skills={['Redis', 'Bull MQ', 'WebRTC', 'Git', 'LLMs']} />
         <Skills
           heading='Soft Skills'
           skills={[
@@ -264,16 +267,27 @@ export const MyDocument = () => (
       <Section heading='Experience'>
         <Experience
           role='Senior Software Engineer'
+          company='ByteCorp'
+          location='Karachi, Pakistan'
+          from='Dec 2024'
+          to='Present'
+          achievements={[
+            'Developed React frontend and REST APIs for IoT-based fleet monitoring system, reducing data fetch latency by 40% and supporting 500+ concurrent vehicle connections.',
+            'Engineered WebRTC video streaming solution achieving 35% reduced latency for live vehicle camera feeds across multiple regions.',
+            'Implemented automated test suites and CI/CD pipelines using GitHub Actions, achieving significant test coverage and reducing deployment time from 2 hours to 20 minutes.',
+          ]}
+        />
+
+        <Experience
+          role='Senior Software Engineer'
           company='Hashone Digital'
           location='Karachi, Pakistan'
           from='Apr 2022'
-          to='Present'
+          to='Dec 2024'
           achievements={[
-            'Architected and implemented a scalable microservices-based backend system using Node.js and NestJS, resulting in a 30% improvement in application performance.',
-            'Led the migration of a legacy monolithic application to a modern React-based frontend, improving user experience and reducing load times by 40%.',
-            'Implemented robust CI/CD pipelines using GitHub Actions and Docker, reducing deployment time from hours to under 30 minutes.',
-            'Mentored junior developers through code reviews and pair programming sessions, fostering a culture of knowledge sharing and continuous improvement.',
-            'Optimized database queries and implemented caching strategies, resulting in a 25% reduction in API response times for high-traffic endpoints.',
+            'Architected microservices backend with Node.js/NestJS and migrated legacy app to React, improving performance by 30% and load times by 40%.',
+            'Implemented CI/CD pipelines using GitHub Actions and Docker, reducing deployment time from hours to under 30 minutes.',
+            'Optimized database queries with caching strategies, resulting in 25% faster API response times for high-traffic endpoints.',
           ]}
         />
 
@@ -284,11 +298,9 @@ export const MyDocument = () => (
           from='Jun 2020'
           to='Mar 2022'
           achievements={[
-            'Developed and maintained RESTful APIs using Node.js and Express, serving over 100,000 daily active users.',
-            'Implemented real-time features using WebSockets and Socket.io, enhancing user engagement in a collaborative project management tool.',
-            'Optimized front-end performance by implementing lazy loading and code splitting in React applications, improving initial load time by 35%.',
-            'Integrated third-party APIs and services, including payment gateways and social media platforms, to expand application functionality and improve user experience.',
-            'Conducted regular security audits and implemented best practices, contributing to a significant reduction in identified vulnerabilities and enhancing overall system security.',
+            'Developed RESTful APIs with Node.js/Express serving 100K+ daily users and implemented WebSocket features for real-time collaboration.',
+            'Optimized React applications with lazy loading and code splitting, improving initial load time by 35%.',
+            'Integrated payment gateways and social media APIs to expand application functionality and user engagement.',
           ]}
         />
       </Section>
@@ -298,7 +310,7 @@ export const MyDocument = () => (
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
-            marginBottom: '4px',
+            margin: '10px 0px',
           }}
         >
           <View style={{ width: '80%' }}>
@@ -309,23 +321,6 @@ export const MyDocument = () => (
           </View>
           <View style={{ width: '20%', alignItems: 'flex-end' }}>
             <Text style={styles.text}>2018 - 2022</Text>
-          </View>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginBottom: '8px',
-          }}
-        >
-          <View style={{ width: '80%' }}>
-            <Text style={{ ...styles.text, fontWeight: 'bold' }}>
-              Higher Secondary School Certificate (HSSC / Intermediate)
-            </Text>
-            <Text style={styles.text}>Habib Public High School</Text>
-          </View>
-          <View style={{ width: '20%', alignItems: 'flex-end' }}>
-            <Text style={styles.text}>2016 - 2018</Text>
           </View>
         </View>
       </Section>
